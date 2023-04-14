@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+Постановка задачи
+Компания «СКАН» разработала новый API для поиска публикаций о компании (юридическом лице) в средствах массовой информации по ИНН. Серверная часть приложения уже готова, ваша задача — разработать клиентскую часть.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Функциональные требования
+Клиентская часть сервиса состоит из:
 
-In the project directory, you can run:
+главной страницы,
+формы авторизации,
+формы для ввода параметров запроса,
+страницы с выводом результатов запроса.
+Макет, подготовленный дизайнерами, находится здесь:
 
-### `npm start`
+https://www.figma.com/file/u3MOjzYnTnirz712GrLbFv/%D0%9C%D0%B0%D0%BA%D0%B5%D1%82-%D0%A1%D0%9A%D0%90%D0%9D?node-id=7-40084&t=ri0oejujvnTAd89c-0
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Шапка сайта
+В ней находятся:
 
-### `npm test`
+логотип,
+меню,
+панель управления учётной записью.
+Страницы «Тарифы» и «FAQ» выходят за рамки данного ТЗ. Поэтому ссылки на них можно оставить пустыми или прописать фейковые URL-адреса.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Шапка сайта выглядит по-разному для авторизованного и неавторизованного пользователя.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Главная страница
+Главная страница содержит описание сервиса и доступна всем пользователям без авторизации.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Обратите внимание на следующие пункты:
 
-### `npm run eject`
+Кнопка «Запросить данные» ведёт на страницу ввода параметров поиска. Её должен видеть только зарегистрированный пользователь.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Карточки в разделе «Почему именно мы» должны переключаться по принципу карусели: клик на стрелке слева или справа переключает карточки в соответствующем направлении.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Форма авторизации
+Эта страница содержит форму с полями для ввода логина и пароля. При заполнении пароля вводимое значение должно маскироваться.
 
-## Learn More
+При отсутствии одного из значений — логина или пароля — кнопка «Войти» неактивна, и при клике на неё ничего не происходит.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+При успешной авторизации в ответе на запрос придут:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+токен авторизации (accessToken),
+дата, до которой токен действителен (expire).
 
-### Code Splitting
+Эти данные необходимо сохранить в localStorage, чтобы пользователю не нужно было заново авторизоваться после каждого обновления страницы.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Форма для ввода параметров запроса
 
-### Making a Progressive Web App
+Данная страница содержит основу функционала сервиса: форму, в которой пользователь задаёт параметры поиска.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Эта страница доступна только авторизованным пользователям. Если неавторизованный пользователь пытается её открыть, нужно переадресовать его на главную страницу сервиса.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Вывод результатов поиска
+Здесь мы выводим результаты ранее введённого запроса. Этот раздел необязательно делать физически отдельной страницей (присваивать свой URL-адрес). Можно отобразить его поверх формы поиска после отправки запроса.
