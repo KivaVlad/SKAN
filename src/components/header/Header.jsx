@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import css from './header.css';
-import logo from '../../images/logo.png'
+import logo from '../../images/logo.png';
+import footerLogo from '../../images/footer_logo.png';
 
 const Header = () => {
     let [activeState, setActiveState] = useState(false);
@@ -10,6 +11,9 @@ const Header = () => {
             <div className='header_list'>
                 <img src={logo} />
                 <div className={`header_nav ${activeState && 'header_nav_active'}`}>
+                    <div className='header_nav_logo'>
+                      <img src={footerLogo} />
+                    </div>
                     <div className='header_nav_items'>
                       <a href='#!'>Главная</a>
                       <a href='#!'>Тарифы</a>

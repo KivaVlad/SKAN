@@ -16,6 +16,11 @@
     width: 190px;
 }
 
+.footer_text p a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 @media (max-width: 500px) {
     .footer_text {
         font-size: 12px;

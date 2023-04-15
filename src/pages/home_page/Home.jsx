@@ -13,7 +13,7 @@ export default class Home extends Component {
             <div className='home_header'>
                 <div className='home_header_text'>
                     <h1 className='title'>
-                        сервис по поиску публикаций<br/> о компании по его ИНН
+                        сервис по поиску <br/>публикаций <br/>о компании <br/>по его ИНН
                     </h1>
                     <p className='home_header_subtext'>
                         Комплексный анализ публикаций, получение данных<br/> в формате PDF на электронную почту.

@@ -4,6 +4,10 @@
     justify-content: space-between;
 }
 
+.header_nav_logo {
+    display: none;
+}
+
 .header_nav {
     display: block;
     align-items: center;
@@ -120,13 +124,18 @@
         display: block;
     }
 
+    .header_nav_logo {
+        display: block;
+        margin-left: 20px;
+    }
+
     .header_nav {
         display: none;
         position: fixed;
         width: 100%;
         height: 100%;
         top: 0;
-        left: 30%;
+        left: 0;
         z-index: 9;
         background-color: #029491;
         transition: .3s linear;
@@ -139,22 +148,25 @@
     .header_nav_items {
         display: flex;
         flex-direction: column;
-        margin: 70px;
+        justify-content: center;
+        margin-top: 160px;
     }
 
     .header_nav_items a{
         font-size: 32px;
         font-weight: 500;
         margin-top: 22px;
+        margin-right: 0;
         color: #fff;
+        text-align: center;
     }
 
     .header_nav_close {
         width: 40px;
         height: 40px;
         position: absolute;
-        top: 50px;
-        left: 62%;
+        top: 60px;
+        left: 90%;
         z-index: 50;
     }
 
@@ -178,60 +190,38 @@
     .header_nav_form {
         display: flex;
         flex-direction: column;
-        margin-top: 50px;
-        margin-left: 70px;
+        align-items: center;
+        margin-top: 80px;
     }
 
     .header_button {
         font-size: 14px;
-        width: 200px;
+        width: 260px;
         height: 40px;
         cursor: pointer;
         margin-top: 25px;
     }
 
     .header_nav_form a {
-        font-size: 20px;
+        font-size: 18px;
+        margin-right: 0;
         font-weight: 500;
         color: #fff;
+        opacity: 0.4;
     }
 
-}
-
-@media (max-width: 550px) {
-    .header_nav_items {
-        margin: 50px;
-    }
-
-    .header_nav_items a{
-        font-size: 28px;
-    }
-
-    .header_nav_form {
-        margin-left: 50px;
-    }
 }
 
 @media (max-width: 450px) {
     .header_nav_items {
-        margin-left: 30px;
+        margin-top: 60px;
     }
 
     .header_nav_items a{
-        font-size: 24px;
-    }
-
-    .header_nav_form {
-        margin-left: 30px;
-        font-size: 16px;
+        font-size: 26px;
     }
 
     .header_nav_close {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        top: 50px;
-        left: 57%;
-        z-index: 50;
+        left: 87%;
     }
 }
