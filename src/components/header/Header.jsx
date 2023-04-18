@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import css from './header.css';
 import logo from '../../images/logo.png';
 import footerLogo from '../../images/footer_logo.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     let [activeState, setActiveState] = useState(false);
@@ -15,13 +16,13 @@ const Header = () => {
                       <img src={footerLogo} />
                     </div>
                     <div className='header_nav_items'>
-                      <a href='#!'>Главная</a>
-                      <a href='#!'>Тарифы</a>
-                      <a href='#!'>FAQ</a>
+                      <Link to='/' onClick={ () => setActiveState(activeState = !activeState)} className='header_nav_items_link'>Главная</Link>
+                      <Link to='#!' className='header_nav_items_link'>Тарифы</Link>
+                      <Link to='#!' className='header_nav_items_link'>FAQ</Link>
                     </div>
                     <div className='header_nav_form'>
-                      <a href='#!'>Зарегистрироваться</a>
-                      <button className='header_button'>Войти</button>
+                      <Link to='/registration' onClick={ () => setActiveState(activeState = !activeState)} className='header_form_subtext'>Зарегистрироваться</Link>
+                      <Link to='/registration' onClick={ () => setActiveState(activeState = !activeState)} className='header_button'>Войти</Link>
                     </div>
                     <div onClick={ () => setActiveState(activeState = !activeState)} className='header_nav_close'>
                       <span className='header_nav_close_line'></span>
@@ -29,8 +30,8 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='header_form'>
-                    <a href='#!'>Зарегистрироваться</a>
-                    <button className='header_button'>Войти</button>
+                    <Link to='/registration' className='header_form_subtext'>Зарегистрироваться</Link>
+                    <Link to='/registration' className='header_button'>Войти</Link>
                 </div>
                 <div onClick={ () => setActiveState(activeState = !activeState) } className='header_burger'>
                   <span className='burger_line burger_line_first'></span>

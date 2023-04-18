@@ -21,7 +21,7 @@
     display: flex;
 }
 
-.header_nav a{
+.header_nav_items_link{
     font-family: 'Inter';
     font-size: 14px;
     text-decoration: none;
@@ -30,15 +30,15 @@
     transition: .3s ease;
 }
 
-.header_nav a:hover{
+.header_nav_items_link:hover{
     opacity: .7;
 }
 
-.header_nav a:last-child{
+.header_nav_items_link:last-child{
     margin-right: 0;
 }
 
-.header_form a{
+.header_form_subtext{
     font-family: 'Inter';
     font-size: 14px;
     color: #000000;
@@ -48,7 +48,7 @@
     transition: .3s ease;
 }
 
-.header_form a:hover{
+.header_form_subtext:hover{
     opacity: .7;
 }
 
@@ -57,16 +57,19 @@
     font-weight: 500;
     font-size: 14px;
     border: none;
-    background: #7CE3E1;
+    text-align: center;
+    background-color: #7CE3E1;
+    color: #000;
     border-radius: 5px;
     padding: 4px 10px;
     cursor: pointer;
+    text-decoration: none;
     position: relative;
     transition: .3s ease;
 }
 
 .header_button:hover{
-    background: #74d4d2;
+    background-color: #74d4d2;
 }
 
 .header_button::before{
@@ -130,29 +133,29 @@
     }
 
     .header_nav {
-        display: none;
         position: fixed;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
+        transform: translateX(100%);
         z-index: 9;
         background-color: #029491;
-        transition: .3s linear;
+        transition: .2s linear;
     }
 
     .header_nav_active {
-        display: block;
+        transform: translateX(0);
     }
 
     .header_nav_items {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 160px;
+        margin-top: 100px;
     }
 
-    .header_nav_items a{
+    .header_nav_items_link{
         font-size: 32px;
         font-weight: 500;
         margin-top: 22px;
@@ -195,14 +198,15 @@
     }
 
     .header_button {
-        font-size: 14px;
+        font-size: 22px;
+        font-weight: 500;
         width: 260px;
         height: 40px;
-        cursor: pointer;
         margin-top: 25px;
+        padding: 14px 0;
     }
 
-    .header_nav_form a {
+    .header_form_subtext {
         font-size: 18px;
         margin-right: 0;
         font-weight: 500;
@@ -217,11 +221,19 @@
         margin-top: 60px;
     }
 
-    .header_nav_items a{
+    .header_nav_items_link{
         font-size: 26px;
     }
 
     .header_nav_close {
         left: 87%;
+    }
+
+    .header_button {
+        font-size: 20px;
+        width: 260px;
+        height: 30px;
+        margin-top: 25px;
+        padding: 12px 0;
     }
 }

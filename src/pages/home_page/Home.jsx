@@ -1,3 +1,4 @@
+import { redirect } from 'react-router-dom';
 import React, { Component } from 'react'
 import css from './home.css';
 import FocusOnSelect from '../../components/carousel/Carousel';
