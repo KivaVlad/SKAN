@@ -198,12 +198,11 @@
     }
 
     .header_button {
-        font-size: 22px;
-        font-weight: 500;
+        font-size: 20px;
         width: 260px;
-        height: 40px;
+        height: 30px;
         margin-top: 25px;
-        padding: 14px 0;
+        padding: 16px 0;
     }
 
     .header_form_subtext {
