@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
-import { useState } from 'react';
 import goodleImg from './images/google.png';
 import facebookImg from './images/fb.png';
 import yandexImg from './images/yandex.png';
 import css from './loginform.css';
 
 const LoginForm = () => {
-    const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onBlur'});
+    const { register, formState: { errors }, handleSubmit } = useForm({ mode: 'onBlur'});
     const onSubmit = (data) => console.log(data);
     
     const errorFormStyle = {
