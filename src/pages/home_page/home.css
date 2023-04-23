@@ -21,14 +21,17 @@
     font-size: 18px;
     color: #FFFFFF;
     background: #5970FF;
+    opacity: .7;
     border-radius: 5px;
     border: none;
     padding: 12px 50px;
     cursor: pointer;
     transition: .3s ease;
 }
-.home_header_button:hover{
+
+.home_header_button:active{
     background: #3947a2;
+    opacity: 1;
 }
 
 .home_header_img img{

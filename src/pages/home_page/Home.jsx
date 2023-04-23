@@ -1,15 +1,13 @@
-import { redirect } from 'react-router-dom';
 import React, { Component } from 'react'
 import css from './home.css';
 import FocusOnSelect from '../../components/carousel/Carousel';
 import homeImg from '../../images/home.jpg';
 import homeUserImg from '../../images/home-bachground-user.jpg';
 
+const Home = () => {
 
-export default class Home extends Component {
-  render() {
-    return (
-      <>
+  return (
+    <>
         <div className='container'>
             <div className='home_header'>
                 <div className='home_header_text'>
@@ -105,6 +103,7 @@ export default class Home extends Component {
             </div>
         </div>
       </>
-    )
-  }
+  )
 }
+
+export default Home;

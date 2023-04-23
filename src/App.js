@@ -7,6 +7,7 @@ import RegisrationPage from './pages/registation page/Registration';
 
 
 function App() {
+
   return (
     <div className='App'>
       <Header />
