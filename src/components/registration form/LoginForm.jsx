@@ -6,7 +6,7 @@ import yandexImg from './images/yandex.png';
 import css from './loginform.css';
 
 const LoginForm = () => {
-    const { register, formState: { errors, isValid }, handleSubmit } = useForm();
+    const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onBlur'});
     const onSubmit = (data) => console.log(data);
     
     const errorFormStyle = {
@@ -47,7 +47,7 @@ const LoginForm = () => {
                 {errors.password?.type === 'minLength' && <div style={errorFormStyle} role="alert">Минимум 6 символов</div>}
             </div>
 
-            <button type='submit' disabled={!isValid} className='form_button'>Войти</button>
+            <button type='submit' className='form_button'>Войти</button>
             <a href='#!' className='form_restore_pass'>Восстановить пароль</a>
         </div>
         <div className='form_links'>
