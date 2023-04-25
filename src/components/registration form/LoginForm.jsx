@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import goodleImg from './images/google.png';
 import facebookImg from './images/fb.png';
 import yandexImg from './images/yandex.png';
 import css from './loginform.css';
 
 const LoginForm = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm({ mode: 'onBlur'});
+    const { register, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'onBlur'});
     const onSubmit = (data) => console.log(data);
     
     const errorFormStyle = {
@@ -14,6 +15,16 @@ const LoginForm = () => {
         textAlign: 'center',
         marginTop: '6px'
     };
+
+    const navigate = useNavigate();
+    //const goHomePage = () => navigate(-1);
+    function goHomePage () {
+        if (isValid === true) {
+            navigate(-1);
+        }
+    }
+
+    
   
     return (
       <form onSubmit={handleSubmit(onSubmit)} className='registration_container'>
@@ -22,31 +33,27 @@ const LoginForm = () => {
             <a href='#!' className='form_header_links'>Зарегистрироваться</a>
         </div>
         <div className='form'>
-            <h3 className='form_text'>Номер телефона:</h3>
+            <h3 className='form_text'>Логин или номер телефона: sf_student1</h3>
             <input
-                {...register("number", { required: true, minLength: 11, maxLength: 11 })} 
+                {...register("name", { required: true })} 
                 aria-invalid={errors.text ? "true" : "false"} 
-                type='number'
-                placeholder='8 (900) 555 00 00'
+                type='text'
             />
             <div className='errors_form_string'>
-                {errors.number?.type === 'required' && <div style={errorFormStyle} role="alert">Введите корректные данные</div>}
-                {errors.number?.type === 'minLength' && <div style={errorFormStyle} role="alert">Введите корректные данные</div>}
-                {errors.number?.type === 'maxLength' && <div style={errorFormStyle} role="alert">Введите корректные данные</div>}
+                {errors.name?.type === 'required' && <div style={errorFormStyle} role="alert">Введите корректные данные</div>}
             </div>
 
-            <h3 className='form_text'>Пароль:</h3>
+            <h3 className='form_text'>Пароль: Es#m*VvaA7</h3>
             <input 
-                {...register("password", { required: true,  minLength: 6 })} 
+                {...register("password", { required: true })} 
                 aria-invalid={errors.password ? "true" : "false"}
                 type="password" 
             />
             <div className='errors_form_string'>
                 {errors.password?.type === 'required' && <div style={errorFormStyle} role="alert">Неправильный пароль</div>}
-                {errors.password?.type === 'minLength' && <div style={errorFormStyle} role="alert">Минимум 6 символов</div>}
             </div>
 
-            <button type='submit' className='form_button'>Войти</button>
+            <button onClick={goHomePage} type='submit' className='form_button'>Войти</button>
             <a href='#!' className='form_restore_pass'>Восстановить пароль</a>
         </div>
         <div className='form_links'>
