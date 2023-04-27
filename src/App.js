@@ -1,24 +1,23 @@
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
-import HomePage from './pages/home_page/Home';
-import RegisrationPage from './pages/registation page/Registration';
+import { Routes, Route } from "react-router-dom";
 
+import Layout from "./components/Layout/Layout";
+import HomePage from "./pages/HomePage/Home";
+import LoginPage from "./pages/LoginPage/Registration";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 
 
 function App() {
 
   return (
-    <div className='App'>
-      <Header />
-      <main>
-        <Routes>
-          <Route path='*' element={<HomePage />} />
-          <Route path='/registration' element={<RegisrationPage />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </>
       
   )
 }
